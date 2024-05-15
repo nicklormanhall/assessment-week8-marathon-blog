@@ -60,3 +60,8 @@ INSERT INTO posts (username, marathon_id, content) VALUES
   ('Cordelia', '5', 'The Berlin Marathon was an epic adventure! The flat course and the enthusiastic spectators made for an incredible race day. I''m proud to have achieved a personal best time here.'),
   ('Davina', '6', 'Just completed the Chicago Marathon, and I''m on cloud nine! The course was fast, and the spirit of the city was infectious. It was an experience I''ll cherish forever.'),
   ('Nick', '7', 'Paris Marathon was an absolute delight! The scenic route, the music bands, and the cheering fans made it an unforgettable race. Running through the streets of Paris was a true privilege.');
+
+
+SELECT m.marathon_name, p.username, p.content, p.date_added
+FROM marathons m
+INNER JOIN posts p ON m.id = p.marathon_id;

@@ -2,7 +2,6 @@ import { sql } from "@vercel/postgres";
 
 export default async function Home() {
   const marathons = await sql`SELECT * FROM marathons`;
-  console.log(marathons);
 
   return (
     <div>
