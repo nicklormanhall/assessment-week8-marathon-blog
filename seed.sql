@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS marathons (
  marathon_id INT,
  username VARCHAR(100),
  content TEXT,
- date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+ date_posts_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 
  CREATE TABLE IF NOT EXISTS post_comments(
  id SERIAL PRIMARY KEY,
@@ -62,6 +62,6 @@ INSERT INTO posts (username, marathon_id, content) VALUES
   ('Nick', '7', 'Paris Marathon was an absolute delight! The scenic route, the music bands, and the cheering fans made it an unforgettable race. Running through the streets of Paris was a true privilege.');
 
 
-SELECT m.marathon_name, p.username, p.content, p.date_added
+SELECT m.marathon_name, p.username, p.content, p.date_posts_added
 FROM marathons m
 INNER JOIN posts p ON m.id = p.marathon_id;

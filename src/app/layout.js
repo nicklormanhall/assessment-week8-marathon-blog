@@ -7,16 +7,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <header>
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/posts">Posts</Link>
-            <Link href="/comments">Comments</Link>
-          </nav>
+          <div className="link-container">
+            <nav>
+              <Link href="/">Home</Link>
+              <Link href="/posts">Posts</Link>
+              <Link href="/comments">Comments</Link>
+            </nav>
+          </div>
         </header>
         {children}
-        <footer>
-          <p>I am the footer</p>
-        </footer>
       </body>
     </html>
   );

@@ -21,4 +21,33 @@ body {
 }
 
 h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: orange;
+  border-radius: 10px;
+}
+
+.link-container a {
+  margin-right: 20px;
+}
+
+.post-container {
+  padding-bottom: 50px;
+}
+
+.post-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: rgb(75, 183, 111);
+  border-radius: 10px;
 }
