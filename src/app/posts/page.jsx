@@ -27,7 +27,7 @@ export default async function Posts({ searchParams }) {
           <Link href={`/posts/${post.id}`} key={post.id}>
             <div key={post.id} className="post-item">
               <h3>{post.marathon_name}</h3>
-              <p>Runner's name: {post.username}</p>
+              <p>Post made by: {post.username}</p>
               <p>{post.content}</p>
             </div>
           </Link>
