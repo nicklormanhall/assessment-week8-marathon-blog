@@ -20,6 +20,7 @@ export default async function Posts({ searchParams }) {
       <div className="link-container">
         <Link href="/posts">Sort Ascending</Link>
         <Link href="/posts?sort=desc">Sort Descending</Link>
+        <Link href="/comments">See Post Comments</Link>
       </div>
 
       {posts.map((post) => {
