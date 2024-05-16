@@ -1,23 +1,35 @@
 import { sql } from "@vercel/postgres";
-import Image from "next/image";
-import Link from "next/link";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
-export default async function IndividualPost({ params }) {
-  const result =
-    await sql`SELECT m.id, p.id, m.marathon_name, p.username, p.content, p.date_posts_added
-  FROM marathons m
-  INNER JOIN posts p ON m.id = p.marathon_id WHERE p.id = ${params.id}`;
-  const posts = result.rows[0];
+export default function AddComment({ params }) {
+  async function handleAddComment(formData) {
+    "use server";
 
-  console.log(params);
+    const username = formData.get("username");
+    const content = formData.get("content");
+
+    await sql`INSERT INTO post_comments (post_id, username, content) VALUES (${params.id}, ${username}, ${content})`;
+
+    revalidatePath("/posts");
+    revalidatePath("/posts/${params.id}");
+
+    // redirect(`/posts/${params.id}`);
+
+    redirect("/posts/");
+  }
+
   return (
-    <div>
-      <h1> Add a comment</h1>
-      <div className="post-item">
-        <h3>{posts.marathon_name}</h3>
-        <p>Runners name: {posts.username}</p>
-        <p>{posts.content}</p>
-      </div>
+    <div className="add-comment-container">
+      <h2>Add Comment</h2>
+      <form action={handleAddComment}>
+        <label htmlFor="username">User Name</label>
+        <input name="username" id="username" placeholder="User Name" />
+        <label htmlFor="content">Content</label>
+        <input name="content" id="content" placeholder="Content" />
+
+        <button type="submit">Add a Comment</button>
+      </form>
     </div>
   );
 }
