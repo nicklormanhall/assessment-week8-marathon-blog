@@ -41,3 +41,9 @@ Requirements
 Was another challenging week. Umfortunately my week and weekend has been non stop trying to get a number of home/family/new job/football tournament related work.
 
 I had problems with date fields on SQL that I wanted to put in and ended up spending to long trying to resolve, there were also a few issues with Vercel not updating back so the SQL was showing incorrectly (showed data in my comments table even though it had been deleted and cleared)
+
+https://assessment-week8-marathon-blog.vercel.app/ (LIVE)
+https://github.com/nicklormanhall/assessment-week8-marathon-blog (GITHUB)
+
+I had some issues with VERCEL updating, the database table was being updated correctly but I noticed on a couple of occasions the comments hadn't updated till later. Pressing Cmd+shift+R Added in
+revalidatePath("/comments")

@@ -11,6 +11,7 @@ export default function AddComment({ params }) {
 
     await sql`INSERT INTO post_comments (post_id, username, content) VALUES (${params.id}, ${username}, ${content})`;
 
+    revalidatePath("/comments");
     revalidatePath("/posts");
     revalidatePath("/posts/${params.id}");
 
