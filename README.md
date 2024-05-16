@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Build a comment form
 
-## Getting Started
+Notes added to Moodle & README.md
 
-First, run the development server:
+Week 8 - Blog (or some such thing) with a Comments Form
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+You've built a simple blog, your task now is to embellish it. Use database relationships to add a comments table. Add categories and tags to your posts. Add a form to create new comments. Add an edit page that populates the form with the post data and allows you save changes to the database.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can use Vercel Postgres or Supabase, so long as Postgres is the database.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+User Stories
+🐿️ As a user, I want to browse a list of posts, sortable by ascending or descending order
+🐿️ As a user, I want to see a list of categories, and click on a category to see a list of posts in that category
+🐿️ As a user, I want to be able to leave a comment sharing my thoughts on each post
+Requirements
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+🎯 Created using create-next-app
 
-## Learn More
+    DONE
 
-To learn more about Next.js, take a look at the following resources:
+🎯 Design a SQL schema for a posts table, and a comments table that has a post_id column connecting it to the posts table.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    DONE - SCHEMA AND SEED DATA IN GITHUB seed.sql
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+🎯 Either create a form where users can add posts OR seed your database with at least 4 posts that comments can be added to (if you do the seed, one of the stretch goals will be harder).
 
-## Deploy on Vercel
+    DONE
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🎯 Add a form to the individual post page to allow creating a new comment, which is saved to the new comments table including the Post ID.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    DONE
+
+🎯 Refresh the /posts route data when adding a new post, and redirect the user to the list of posts
+
+    DONE
+
+🎯 Refresh the /post/:postId route when adding a new comment, so the new comment is displayed on the page
+
+    I didn't see until I was just writing the README and did it a different way to show the comments I'll try to go back and redo next week
+
+Was another challenging week. Umfortunately my week and weekend has been non stop trying to get a number of home/family/new job/football tournament related work.
+
+I had problems with date fields on SQL that I wanted to put in and ended up spending to long trying to resolve, there were also a few issues with Vercel not updating back so the SQL was showing incorrectly (showed data in my comments table even though it had been deleted and cleared)

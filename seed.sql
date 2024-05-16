@@ -65,3 +65,10 @@ INSERT INTO posts (username, marathon_id, content) VALUES
 SELECT m.marathon_name, p.username, p.content, p.date_posts_added
 FROM marathons m
 INNER JOIN posts p ON m.id = p.marathon_id;
+
+SELECT pc.id AS comment_id, pc.content AS comment_content, pc.date_added AS comment_date,
+    m.marathon_name, pc.username AS comment_username, p.id AS post_id
+FROM post_comments pc
+JOIN posts p ON pc.post_id = p.id
+JOIN marathons m ON p.marathon_id = m.id
+ORDER BY pc.date_added desc
